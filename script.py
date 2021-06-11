@@ -1,5 +1,10 @@
 import requests
+from bs4 import BeautifulSoup
 
-content = requests.get('https://github.com/dimitris4/python-modules/blob/master/script.py')
+page = requests.get('https://github.com/dimitris4/python-modules/blob/master/script.py')
 
-print(content)
+print(page)
+
+soup = BeautifulSoup(page.text, 'html.parser')
+
+print(soup.prettify())
